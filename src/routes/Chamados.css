@@ -1,0 +1,27 @@
+.chamados{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.memory{
+    width: 500px;
+    height: auto;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color:  rgb(77, 58, 58);
+    margin-bottom: 3rem;
+    color: aqua
+}
+
+
+h1{
+    margin: 1rem 5rem;
+    color: aqua;
+}
+
+.memory p{
+    margin-bottom: 5px;
+}
