@@ -24,11 +24,7 @@ const Home = () => {
       console.log(pair[0], pair[1]);
     }
     try {
-      
       const response = await axios.post("/memories", formData);
-      
-
-
     } catch (error) {
       console.log(error)
       

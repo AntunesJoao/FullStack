@@ -48,7 +48,7 @@ const Chamados = () => {
               <p>{comment.number}</p>
               {comment.src && (
                 <img
-                  src={`${axios.defaults.baseURL}${comment.src}`}
+                  src={`${import.meta.env.VITE_API_URL}${comment.src}`}
                   alt="Imagem do chamado"
 
                 />
