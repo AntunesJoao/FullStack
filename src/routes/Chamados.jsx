@@ -9,14 +9,20 @@ import React, { useState, useEffect } from 'react'
      const getMemories = async () => {
        try {
          const res = await axios.get("https://fullstack-production-7c40.up.railway.app/memories")
-         setMemories(res.data)
+         
+         if (Array.isArray(res.data)) {
+          setMemories(res.data);
+        } else {
+          console.error("res.data não é um array:", res.data);
+        }
+
        } catch (err) {
          console.error("Erro ao buscar memórias:", err)
        }
      }
  
      getMemories()
-   })
+   }, [])
  
  
    const handleDownload = async (url, filename) => {
@@ -43,12 +49,12 @@ import React, { useState, useEffect } from 'react'
            const comment = memory.comments[0]
            return (
              <div className="memory" key={memory._id}>
-               <p>{comment.name}</p>
-               <p>{comment.store}</p>
-               <p>{comment.number}</p>
-               {comment.src && (
+               <p>{comment[0].name}</p>
+               <p>{comment[0].store}</p>
+               <p>{comment[0].number}</p>
+               {comment[0].src && (
                  <img
-                   src={`${axios.defaults.baseURL}${comment.src}`}
+                   src={`${axios.defaults.baseURL}${comment[0].src}`}
                    alt="Imagem do chamado"
  
                  />
@@ -56,7 +62,7 @@ import React, { useState, useEffect } from 'react'
                <button
                  onClick={() =>
                    handleDownload(
-                     `${axios.defaults.baseURL}${comment.src}`,
+                     `${axios.defaults.baseURL}${comment[0].src}`,
                      `chamado-${memory._id}.jpg`
                    )
                  }
