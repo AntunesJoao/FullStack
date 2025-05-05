@@ -1,13 +1,18 @@
 const express = require("express")
  const app = express()
  const cors = require("cors")
+ const path = require("path")
+
  require('dotenv').config()
  
  const corsOptions = {
-    origin: "full-stack-nu-murex.vercel.app", 
+    origin: "https://full-stack-nu-murex.vercel.app", 
     credentials: true
   };
   
+
+
+
 app.use(cors(corsOptions));
  app.use(express.json())
  app.use(express.static("public"))
