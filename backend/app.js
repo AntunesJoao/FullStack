@@ -3,10 +3,14 @@ const app = express()
 const cors = require("cors")
 const serverless = require('serverless-http');
 
-const cors = {
-  origin: "https://full-stack-nu-murex.vercel.app", 
+const cors = require("cors");
+
+const corsOptions = {
+  origin: "https://full-stack-nu-murex.vercel.app",
   credentials: true
 };
+
+app.use(cors(corsOptions));
 
 app.use(express.json())
 app.use(express.static("public"))
