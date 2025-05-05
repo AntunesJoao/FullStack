@@ -14,8 +14,8 @@ require("./bd/conn")
 
 
 const  memoryRoutes = require("./routes")
-app.use("/memories", memoryRoutes)
-const port = 3000
+app.use("/api/memories", memoryRoutes)
+const port = process.env.PORT || 3000;
 
 app.listen(port, async()=>{
     console.log(`Servidor rodando na porta ${port}`)
