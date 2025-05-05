@@ -8,9 +8,7 @@ const Chamados = () => {
   useEffect(() => {
     const getMemories = async () => {
       try {
-        console.log('API retornou:', res.data);
         const res = await axios.get("https://fullstack-production-feea.up.railway.app/memories")
-        
         setMemories(res.data)
       } catch (err) {
         console.error("Erro ao buscar memórias:", err)
