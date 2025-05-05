@@ -10,11 +10,7 @@ import React, { useState, useEffect } from 'react'
        try {
          const res = await axios.get("https://fullstack-production-7c40.up.railway.app/memories")
          
-         if (Array.isArray(res.data)) {
-          setMemories(res.data);
-        } else {
-          console.error("res.data não é um array:", res.data);
-        }
+         console.log(res.data); // Veja se é um array
 
        } catch (err) {
          console.error("Erro ao buscar memórias:", err)
