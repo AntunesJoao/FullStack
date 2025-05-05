@@ -1,18 +1,23 @@
-const express = require("express");
-const cors = require("cors");
-const app = express();
-require("./bd/conn");
+const express = require("express")
+const app = express()
+const cors = require("cors")
+const serverless = require('serverless-http');
 
-const memoryRoutes = require("./routes");
-
-const corsOptions = {
-  origin: "https://full-stack-nu-murex.vercel.app",
-  credentials: true,
+const cors = {
+  origin: "https://full-stack-nu-murex.vercel.app", 
+  credentials: true
 };
 
-app.use(cors(corsOptions));
-app.use(express.json());
-app.use(express.static("public"));
-app.use("/memories", memoryRoutes);
+app.use(express.json())
+app.use(express.static("public"))
 
-module.exports = app;
+require("./bd/conn")
+
+
+const  memoryRoutes = require("./routes")
+app.use("/memories", memoryRoutes)
+const port = process.env.PORT || 3000;
+
+app.listen(port, async()=>{
+    console.log(`Servidor rodando na porta ${port}`)
+})
