@@ -25,7 +25,7 @@ const Home = () => {
     }
     try {
       
-      const response = await axios.post("https://fullstack-production-feea.up.railway.app/memories/memories", formData);
+      const response = await axios.post("https://fullstack-production-feea.up.railway.app/memories", formData);
       
 
 
