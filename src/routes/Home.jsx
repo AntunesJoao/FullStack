@@ -25,7 +25,7 @@ import React from 'react'
      }
      try {
        
-       const response = await axios.post("fullstack-production-7c40.up.railway.app/memories", formData);
+       const response = await axios.post("https://fullstack-production-7c40.up.railway.app/memories", formData);
        
      } catch (error) {
        console.log(error)
