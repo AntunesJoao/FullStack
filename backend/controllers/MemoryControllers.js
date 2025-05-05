@@ -1,7 +1,5 @@
 const Memory = require("../models/Memory")
  
- 
- 
  // onde fica o codigo principal para as requisições
  const createMemory = async(req, res) =>{
     try {

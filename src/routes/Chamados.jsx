@@ -8,7 +8,7 @@ import React, { useState, useEffect } from 'react'
    useEffect(() => {
      const getMemories = async () => {
        try {
-         const res = await axios.get("/memories")
+         const res = await axios.get("fullstack-production-7c40.up.railway.app/memories")
          setMemories(res.data)
        } catch (err) {
          console.error("Erro ao buscar memórias:", err)
