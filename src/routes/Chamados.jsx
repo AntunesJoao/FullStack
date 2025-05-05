@@ -39,34 +39,36 @@ const Chamados = () => {
     <div className='main'>
       <h1>Chamados</h1>
       <div className="chamados">
-        {memories.length > 0 && memories.map((memory) => {
-          {console.log('Dados recebidos:',  memories);}
-          const comment = memory.comments[0]
-          return (
-            <div className="memory" key={memory._id}>
-              <p>{comment.name}</p>
-              <p>{comment.store}</p>
-              <p>{comment.number}</p>
-              {comment.src && (
-                <img
-                  src={`${axios.defaults.baseURL}${comment.src}`}
-                  alt="Imagem do chamado"
-
-                />
-              )}
-              <button
-                onClick={() =>
-                  handleDownload(
-                    `${axios.defaults.baseURL}${comment.src}`,
-                    `chamado-${memory._id}.jpg`
-                  )
-                }
-              >
-                Baixar imagem
-              </button>
-            </div>
-          );
-        })}
+      {Array.isArray(memories) ? (
+  memories.map((memory) => {
+    const comment = memory.comments[0];
+    return (
+      <div className="memory" key={memory._id}>
+        <p>{comment.name}</p>
+        <p>{comment.store}</p>
+        <p>{comment.number}</p>
+        {comment.src && (
+          <img
+            src={`${axios.defaults.baseURL}${comment.src}`}
+            alt="Imagem do chamado"
+          />
+        )}
+        <button
+          onClick={() =>
+            handleDownload(
+              `${axios.defaults.baseURL}${comment.src}`,
+              `chamado-${memory._id}.jpg`
+            )
+          }
+        >
+          Baixar imagem
+        </button>
+      </div>
+    );
+  })
+) : (
+  <p>Carregando ou nenhum chamado encontrado.</p>
+)}
       </div>
     </div>
   )
