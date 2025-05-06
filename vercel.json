@@ -2,14 +2,23 @@
     "version": 2,
     "builds": [
       {
-        "src": "backend/app.js",
+        "src": "backend/api.js",
         "use": "@vercel/node"
+      },
+      
+      {
+        "src": "project_glpi/App.jsx",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "backend/app.js"
+        "dest": "backend/api.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "frontend/$1"
       }
     ]
   }
